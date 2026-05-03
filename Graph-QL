@@ -1,1 +1,74 @@
+Q.  What is GraphQL? Uses of it.
+A.  GraphQL is a query language for your API, and a server-side runtime for executing queries.
+    What does “query” mean in GraphQL?
+    A query = asking for specific data
+    Not just “get data”, but “get exactly this data”
+    Example (GraphQL query):
+    {
+      products {
+        title
+        price
+      }
+    }
+    👉Meaning: “Give me only title and price of products”
 
+    GraphQL is:
+    A query language → you write queries to ask data
+    A runtime → server understands & returns exactly that data
+    🔹Problem with REST (your example ✔️)
+    
+    In REST:
+    You call /products
+    You always get full data (big JSON)
+    Even if you need only 2–3 fields
+
+    👉Issues:
+    ❌Over-fetching (extra data you don’t need)
+    ❌Multiple API calls
+    ❌More bandwidth usage
+    🔹How GraphQL solves it
+
+    Instead of 3 REST calls, you make custom queries
+    1️⃣Home Page
+    {
+      products {
+        title
+        description
+        price
+        rating
+        thumbnail
+      }
+    }
+    2️⃣Product Detail Page
+    {
+      product(id: 1) {
+        title
+        tags
+        images
+        discountPercentage
+        availabilityStatus
+      }
+    }
+    3️⃣Cart / Order Page
+    {
+      product(id: 1) {
+        title
+        tags
+        images
+        price
+        warrantyInformation
+        shippingInformation
+        availabilityStatus
+        brand
+      }
+    }
+    🔹Final Use (in simple words)
+    👉GraphQL is used to:
+    Fetch only required data
+    Reduce API calls
+    Improve performance
+    Avoid over-fetching & under-fetching.
+
+    🔹One-line difference
+    REST → Server decides what you get
+    GraphQL → Client decides what it needs
